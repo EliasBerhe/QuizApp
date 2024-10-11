@@ -1,0 +1,26 @@
+<div class = "bigBox">
+    <div class = "box1">
+        <h1> Choose Category</h1>
+        <select class="form-select" aria-label="Default select example">
+            <option selected></option>
+            <option  *ngFor = "let category of categoryList">
+                {{ category }}
+            </option>
+        </select> 
+    </div>
+    <div class = "box2">
+        <h1> Choose Difficulty</h1>
+        <select class="form-select" aria-label="Default select example">
+            <option selected></option>
+            <option  *ngFor = "let difficulty of difficulties">
+                {{ difficulty }}
+            </option>
+        </select> 
+    </div>
+
+    <div class = "box3">
+        <button class="btn btn-light btn-lg" type="submit">Submit form</button>
+    </div>
+</div>
+
+

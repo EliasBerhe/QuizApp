@@ -1,0 +1,13 @@
+h1 {
+    text-align: center;
+}
+.bigBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
+}
+
+.box3{
+    align-self: center;
+}
