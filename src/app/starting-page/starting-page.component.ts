@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {CommonModule} from '@angular/common';
 @Component({
   selector: 'app-starting-page',
@@ -11,5 +11,12 @@ import {CommonModule} from '@angular/common';
 export class StartingPageComponent {
   @Input() categoryList!: String[];
   @Input() difficulties!: String[];
+// this used to emit a value when an some event happens in out case a button clicked 
+  @Output() switchPage = new EventEmitter<string>();
+
+  switchToQuestionPage() {
+    console.log('pressed');
+    this.switchPage.emit('questionPage');
+  }
  
 }

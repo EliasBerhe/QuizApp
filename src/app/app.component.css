@@ -1,4 +1,4 @@
-body{
+.body{
     border: 2px ;
     display: flex;
     justify-content: center;
@@ -9,7 +9,6 @@ body{
 .container{
     height: 700px;
     width: 700px;
-    border: 2px;
     border-radius: 20%;
     background-image: url("quizz5.png");
     background-repeat: no-repeat;
@@ -31,6 +30,5 @@ body{
     justify-content: center;
     padding-top: 20%;
     height: 500px;
-    border: 2px solid ;
 }
 

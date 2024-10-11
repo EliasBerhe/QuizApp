@@ -1,3 +1,7 @@
+<!--
+- (click) = "switchToQuestionPage()" if the button clicked it will call the function in 
+ts file so which will basically send an event to parent component
+-->
 <div class = "bigBox">
     <div class = "box1">
         <h1> Choose Category</h1>
@@ -19,7 +23,7 @@
     </div>
 
     <div class = "box3">
-        <button class="btn btn-light btn-lg" type="submit">Submit form</button>
+        <button (click) = "switchToQuestionPage()" class="btn btn-light btn-lg" type="submit">Start</button>
     </div>
 </div>
 

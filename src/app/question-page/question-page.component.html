@@ -1,19 +1,41 @@
+<!--
+- "{'selected': selectedChoice ===1}" -> indicate which class is selected so the DOM updates the class of each button
+so one of 4 button will have the class selected (css file button.selected)
+- (click)="selectChoice(1)" if the button is clicked, it will call selectChoice in ts file
+-->
 <div class = "bigB">
     <div class="question">
         Some Random Question
     </div>
     <div class = "choices">
         <div class = "choice">
-            <button class="btn btn-primary custom-button"> Answer</button>
+            <button 
+            class="btn custom-button"
+            [ngClass] = "{'selected': selectedChoice ===1}"
+            (click)="selectChoice(1)"
+            > Answer</button>
         </div>
         <div class = "choice">
-            <button class="btn btn-primary custom-button"> Answer</button>
+            <button 
+            class="btn custom-button"
+            [ngClass] = "{'selected': selectedChoice == 2}"
+            (click) = "selectChoice(2)"
+            > Answer</button>
         </div><div class = "choice">
-            <button class="btn btn-primary custom-button">  Answer</button>
+            <button 
+            class="btn  custom-button"
+            [ngClass] = "{'selected': selectedChoice == 3}"
+            (click) = "selectChoice(3)"
+            >  Answer</button>
         </div>
         
         <div class = "choice">
-            <button class="btn btn-primary custom-button"> Answer</button>
+            <button 
+            (click) = "switchToStartPage()"
+             class="btn custom-button"
+             [ngClass] = "{'selected': selectedChoice == 4}"
+            (click) = "selectChoice(4)"
+             > Answer</button>
         </div>
     
     </div>

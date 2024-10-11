@@ -1,13 +1,24 @@
-<body>
-  <div class = "container">
+<!--
+-> 
+ (switchPage)="showPage($event)"
+ - switchPage is an eventEmitter so whatever even is emitted will be passed to showPage as an argument
+ this is used to transition from one component to another
+-->
+<div class = "body">
+ <div class = "container">
       <h1 id = "title"> Dummy Check </h1>
       <div class = "box">
-    <!--    <app-starting-page 
+     <app-starting-page 
+     *ngIf = "currentPage == 'startPage'"
+     (switchPage)="showPage($event)"
           [categoryList] = "categoryList" 
           [difficulties] = "difficulties">
-      </app-starting-page>-->
-      <app-question-page></app-question-page>
+      </app-starting-page>
+      <app-question-page 
+      *ngIf = "currentPage == 'questionPage'"
+      (switchPage)="showPage($event)"
+      ></app-question-page>
       </div>
       
   </div>
-</body> 
+</div>

@@ -21,14 +21,18 @@
    align-items: center;
 }
 
-.choice{
-   
-   
-}
+
 .custom-button {
+    background-color: white;
+    cursor: pointer;
+    color: black;
     width: 200px;    /* Set a specific width, adjust as needed */
     height: 30px;    /* Set a smaller height */
     padding: 5px 10px; /* Optionally adjust padding for text inside */
     font-size: 14px; /* Optionally adjust font size to fit smaller height */
+}
+button.selected {
+    background-color: blue;
+    color: white;
 }
 
