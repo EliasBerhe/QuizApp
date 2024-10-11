@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { StartingPageComponent } from './starting-page/starting-page.component';
 import { QuestionPageComponent } from './question-page/question-page.component';
 import {CommonModule} from '@angular/common';
+
 @Component({
   selector: 'app-root',
   standalone: true,

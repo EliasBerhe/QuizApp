@@ -1,19 +1,22 @@
 <!--
 - "{'selected': selectedChoice ===1}" -> indicate which class is selected so the DOM updates the class of each button
 so one of 4 button will have the class selected (css file button.selected)
-- (click)="selectChoice(1)" if the button is clicked, it will call selectChoice in ts file
+- (click) ="selectChoice(1)" if the button is clicked, it will call selectChoice in ts file
 -->
 <div class = "bigB">
-    <div class="question">
-        Some Random Question
+    <div *ngIf = "size > index" class="question">
+      <h5>{{questions[index].question}}</h5>  
     </div>
-    <div class = "choices">
+    <div *ngIf = "size == index" class="question">
+        {{questions[index-1].question}}
+    </div>
+    <div  class = "choices">
         <div class = "choice">
             <button 
             class="btn custom-button"
             [ngClass] = "{'selected': selectedChoice ===1}"
             (click)="selectChoice(1)"
-            > Answer</button>
+            >  {{correctOption}}</button>
         </div>
         <div class = "choice">
             <button 
@@ -31,12 +34,24 @@ so one of 4 button will have the class selected (css file button.selected)
         
         <div class = "choice">
             <button 
-            (click) = "switchToStartPage()"
              class="btn custom-button"
              [ngClass] = "{'selected': selectedChoice == 4}"
             (click) = "selectChoice(4)"
              > Answer</button>
         </div>
     
+    </div>
+
+    <div>
+        <button 
+        *ngIf = "size-1 > index"
+        class = "btn btn-success"
+        (click) = "nextQuestion()"
+        >Next Question</button>
+        <button 
+        *ngIf = "index == size-1"
+        class = "btn btn-success"
+        (click) = "switchToStartPage()"
+        >Finish</button>
     </div>
 </div>
