@@ -13,23 +13,43 @@ so one of 4 button will have the class selected (css file button.selected)
     <div  class = "choices">
         <div class = "choice">
             <button 
-            class="btn custom-button"
+            class= "btn custom-button"
             [ngClass] = "{'selected': selectedChoice ===1}"
-            (click)="selectChoice(1)"
-            >  {{correctOption}}</button>
+            (click)= "selectChoice(1)"
+            >  <p *ngIf = "correctOption == 1">
+                {{questions[index].correct_answer}}
+            </p> 
+            <p *ngIf = "correctOption != 1">
+                {{ questions[index].incorrect_answers[optionIndex] }}
+                {{ updateCounter()}}
+            </p> </button>
         </div>
         <div class = "choice">
             <button 
             class="btn custom-button"
             [ngClass] = "{'selected': selectedChoice == 2}"
             (click) = "selectChoice(2)"
-            > Answer</button>
+            >
+            <p *ngIf = "correctOption == 2">
+                {{questions[index].correct_answer}}
+            </p> 
+            <p *ngIf = "correctOption != 2">
+                {{ questions[index].incorrect_answers[optionIndex] }}
+                {{ updateCounter()}}
+            </p> 
+        </button>
         </div><div class = "choice">
             <button 
             class="btn  custom-button"
             [ngClass] = "{'selected': selectedChoice == 3}"
             (click) = "selectChoice(3)"
-            >  Answer</button>
+            >  <p *ngIf = "correctOption == 3">
+                {{questions[index].correct_answer}}
+            </p> 
+            <p *ngIf = "correctOption != 3">
+                {{ questions[index].incorrect_answers[optionIndex] }}
+                {{ updateCounter()}}
+            </p> </button>
         </div>
         
         <div class = "choice">
@@ -37,7 +57,13 @@ so one of 4 button will have the class selected (css file button.selected)
              class="btn custom-button"
              [ngClass] = "{'selected': selectedChoice == 4}"
             (click) = "selectChoice(4)"
-             > Answer</button>
+             > <p *ngIf = "correctOption == 4">
+                {{questions[index].correct_answer}}
+            </p> 
+            <p *ngIf = "correctOption != 4">
+                {{ questions[index].incorrect_answers[optionIndex] }}
+                {{ updateCounter()}}
+            </p> </button>
         </div>
     
     </div>

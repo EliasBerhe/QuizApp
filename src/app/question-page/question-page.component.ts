@@ -12,12 +12,16 @@ import { ApiService } from './api.service';
 export class QuestionPageComponent {
   index: number = 0;
   correctOption: number = Math.floor(Math.random() * 4)+1;
+  optionIndex = 0;
   @Output() switchPage = new EventEmitter<string>();
   selectedChoice: number =0;
   questions: any[] = [];
   size: number = 0;
+  correctAnswers: number = 0;
+
   selectChoice(choiceNumber: number){
     this.selectedChoice = choiceNumber;
+    this.optionIndex=0;
   }
   constructor(private apiService: ApiService){}
 
@@ -44,7 +48,19 @@ export class QuestionPageComponent {
   }
 
   nextQuestion(){
+    //Check if last selected choice was correct before moving to next quesiton
+    if(this.selectedChoice === this.correctOption){
+      this.correctAnswers++; //increment the overall
+    }
+
     this.correctOption = Math.floor(Math.random() * 4)+1;
     this.index +=1;
+    this.optionIndex =0;
+    this.selectedChoice =0;
+
+  }
+
+  updateCounter(){
+    this.optionIndex +=1;
   }
 }
