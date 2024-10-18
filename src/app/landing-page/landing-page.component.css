@@ -1,0 +1,12 @@
+.result{
+    width: 500px;
+    height: 200px;
+    border-radius: 20%;
+    padding: 18px;
+    font-size: 25px;  
+    text-align: center; 
+}
+
+.bigB{
+    text-align: center;
+}

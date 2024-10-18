@@ -37,8 +37,10 @@ export class QuestionPageComponent {
       }
     )
   }
-  switchToStartPage(){
-    this.switchPage.emit("startPage");
+
+  switchToLandingPage(){
+    console.log('switch to landing')
+    this.switchPage.emit("landingPage");
   }
 
   nextQuestion(){
