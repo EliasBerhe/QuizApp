@@ -14,8 +14,11 @@ so one of 4 button will have the class selected (css file button.selected)
         <div class = "choice">
             <button 
             class= "btn custom-button"
-            [ngClass] = "{'selected': selectedChoice ===1}"
+            [ngClass] = "{'selected': selectedChoice ===1,
+            'correct': answerChecked && correctOption === 1,
+            'incorrect': answerChecked && wrongChoice === 1}"
             (click)= "selectChoice(1)"
+            [disabled]="answerChecked"
             >  <p *ngIf = "correctOption == 1">
                 {{questions[index].correct_answer}}
             </p> 
@@ -27,8 +30,11 @@ so one of 4 button will have the class selected (css file button.selected)
         <div class = "choice">
             <button 
             class="btn custom-button"
-            [ngClass] = "{'selected': selectedChoice == 2}"
+            [ngClass] = "{'selected': selectedChoice == 2,
+            'correct': answerChecked && correctOption === 2,
+            'incorrect': answerChecked && wrongChoice === 2}"
             (click) = "selectChoice(2)"
+            [disabled]="answerChecked"
             >
             <p *ngIf = "correctOption == 2">
                 {{questions[index].correct_answer}}
@@ -41,8 +47,11 @@ so one of 4 button will have the class selected (css file button.selected)
         </div><div class = "choice">
             <button 
             class="btn  custom-button"
-            [ngClass] = "{'selected': selectedChoice == 3}"
+            [ngClass] = "{'selected': selectedChoice == 3,
+            'correct': answerChecked && correctOption === 3,
+            'incorrect': answerChecked && wrongChoice === 3}"
             (click) = "selectChoice(3)"
+            [disabled]="answerChecked"
             >  <p *ngIf = "correctOption == 3">
                 {{questions[index].correct_answer}}
             </p> 
@@ -55,8 +64,11 @@ so one of 4 button will have the class selected (css file button.selected)
         <div class = "choice">
             <button 
              class="btn custom-button"
-             [ngClass] = "{'selected': selectedChoice == 4}"
+             [ngClass] = "{'selected': selectedChoice == 4,
+             'correct': answerChecked && correctOption === 4,
+             'incorrect': answerChecked && wrongChoice === 4}"
             (click) = "selectChoice(4)"
+            [disabled]="answerChecked"
              > <p *ngIf = "correctOption == 4">
                 {{questions[index].correct_answer}}
             </p> 
@@ -70,12 +82,17 @@ so one of 4 button will have the class selected (css file button.selected)
 
     <div>
         <button 
-        *ngIf = "size-1 > index"
+        *ngIf="!answerChecked" 
+        class="btn btn-success" 
+        (click)="checkAnswer()"
+        >Submit</button>
+        <button 
+        *ngIf = "answerChecked && size-1 > index"
         class = "btn btn-success"
         (click) = "nextQuestion()"
         >Next Question</button>
         <button 
-        *ngIf = "index == size-1"
+        *ngIf = "answerChecked && index == size-1"
         class = "btn btn-success"
         (click) = "switchToStartPage()"
         >Finish</button>
