@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl = 'https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple'; // API URL
+  private apiUrl = 'https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple&encode=url3986'; // API URL
 
   constructor(private http: HttpClient) {}
 

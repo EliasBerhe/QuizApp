@@ -35,7 +35,7 @@ export class QuestionPageComponent {
     this.apiService.getQuestions().subscribe(
       (data) => {
         console.log('Questions', data);
-        this.questions = data;
+        this.questions = (data);
         this.size = data.length;
       },
       (error) => {
@@ -76,5 +76,8 @@ export class QuestionPageComponent {
     //   this.optionIndex += 1;
     // }
     this.optionIndex += 1;
+  }
+  decode(question: string){
+    return decodeURIComponent(question);
   }
 }

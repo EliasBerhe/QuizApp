@@ -5,10 +5,10 @@ so one of 4 button will have the class selected (css file button.selected)
 -->
 <div class = "bigB">
     <div *ngIf = "size > index" class="question">
-      <h5>{{questions[index].question}}</h5>  
+      <h5>{{decode(questions[index].question)}}</h5>  
     </div>
     <div *ngIf = "size == index" class="question">
-        {{questions[index-1].question}}
+        {{decode(questions[index-1].question)}}
     </div>
     <div  class = "choices">
         <div class = "choice">
@@ -20,10 +20,10 @@ so one of 4 button will have the class selected (css file button.selected)
             (click)= "selectChoice(1)"
             [disabled]="answerChecked"
             >  <p *ngIf = "correctOption == 1">
-                {{questions[index].correct_answer}}
+                {{decode(questions[index].correct_answer)}}
             </p> 
             <p *ngIf = "correctOption != 1">
-                {{ questions[index].incorrect_answers[optionIndex] }}
+                {{ decode(questions[index].incorrect_answers[optionIndex] )}}
                 {{ updateCounter()}}
             </p> </button>
         </div>
@@ -37,10 +37,10 @@ so one of 4 button will have the class selected (css file button.selected)
             [disabled]="answerChecked"
             >
             <p *ngIf = "correctOption == 2">
-                {{questions[index].correct_answer}}
+                {{ decode(questions[index].correct_answer)}}
             </p> 
             <p *ngIf = "correctOption != 2">
-                {{ questions[index].incorrect_answers[optionIndex] }}
+                {{ decode(questions[index].incorrect_answers[optionIndex] )}}
                 {{ updateCounter()}}
             </p> 
         </button>
@@ -53,10 +53,10 @@ so one of 4 button will have the class selected (css file button.selected)
             (click) = "selectChoice(3)"
             [disabled]="answerChecked"
             >  <p *ngIf = "correctOption == 3">
-                {{questions[index].correct_answer}}
+                {{decode(questions[index].correct_answer)}}
             </p> 
             <p *ngIf = "correctOption != 3">
-                {{ questions[index].incorrect_answers[optionIndex] }}
+                {{ decode(questions[index].incorrect_answers[optionIndex] )}}
                 {{ updateCounter()}}
             </p> </button>
         </div>
@@ -70,10 +70,10 @@ so one of 4 button will have the class selected (css file button.selected)
             (click) = "selectChoice(4)"
             [disabled]="answerChecked"
              > <p *ngIf = "correctOption == 4">
-                {{questions[index].correct_answer}}
+                {{ decode(questions[index].correct_answer)}}
             </p> 
             <p *ngIf = "correctOption != 4">
-                {{ questions[index].incorrect_answers[optionIndex] }}
+                {{ decode(questions[index].incorrect_answers[optionIndex]) }}
                 {{ updateCounter()}}
             </p> </button>
         </div>
