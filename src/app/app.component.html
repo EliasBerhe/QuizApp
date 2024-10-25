@@ -18,6 +18,10 @@
       *ngIf = "currentPage == 'questionPage'"
       (switchPage)="showPage($event)"
       ></app-question-page>
+      <app-landing-page
+      *ngIf = "currentPage == 'landingPage'"
+      (switchPage)="showPage($event)"
+      ></app-landing-page>
       </div>
       
   </div>

@@ -19,6 +19,7 @@ export class QuestionPageComponent {
   size: number = 0;
   answerChecked: boolean = false; // Flag to track if the answer was checked
   wrongChoice: number = 0; // Track the incorrect choice if any
+  correctAnswers: number = 0;
 
   selectChoice(choiceNumber: number){
     this.selectedChoice = choiceNumber;
@@ -42,11 +43,18 @@ export class QuestionPageComponent {
       }
     )
   }
-  switchToStartPage(){
-    this.switchPage.emit("startPage");
+
+  switchToLandingPage(){
+    console.log('switch to landing')
+    this.switchPage.emit("landingPage");
   }
 
   nextQuestion(){
+    //Check if last selected choice was correct before moving to next quesiton
+    if(this.selectedChoice === this.correctOption){
+      this.correctAnswers++; //increment the overall
+    }
+
     this.correctOption = Math.floor(Math.random() * 4)+1;
     this.index +=1;
     this.optionIndex =0;
