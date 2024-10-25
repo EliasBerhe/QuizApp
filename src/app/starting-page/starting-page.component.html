@@ -5,18 +5,18 @@ ts file so which will basically send an event to parent component
 <div class = "bigBox">
     <div class = "box1">
         <h1> Choose Category</h1>
-        <select class="form-select" aria-label="Default select example">
-            <option selected></option>
-            <option  *ngFor = "let category of categoryList">
+        <select class="form-select" aria-label="Default select example"  [(ngModel)]="selectedCategory">
+            <option selected [value]=""></option>
+            <option  *ngFor = "let category of categoryList" [value]="category">
                 {{ category }}
             </option>
         </select> 
     </div>
     <div class = "box2">
         <h1> Choose Difficulty</h1>
-        <select class="form-select" aria-label="Default select example">
-            <option selected></option>
-            <option  *ngFor = "let difficulty of difficulties">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedDifficulty">
+            <option selected [value] = ""></option>
+            <option  *ngFor = "let difficulty of difficulties" [value] = "difficulty">
                 {{ difficulty }}
             </option>
         </select> 
@@ -25,6 +25,7 @@ ts file so which will basically send an event to parent component
     <div class = "box3">
         <button (click) = "switchToQuestionPage()" class="btn btn-light btn-lg" type="submit">Start</button>
     </div>
+    <div *ngIf="isVisible">You Have to Select a Category and Difficulty!</div>
 </div>
 
 

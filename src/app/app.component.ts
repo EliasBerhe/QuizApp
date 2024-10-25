@@ -23,9 +23,9 @@ export class AppComponent {
     "History"
   ];
   difficulties: String[] = [
-    "easy",
-    "medium",
-    "hard"
+    "Easy",
+    "Medium",
+    "Hard"
   ];
   showPage(page: string){
     this.currentPage = page;
