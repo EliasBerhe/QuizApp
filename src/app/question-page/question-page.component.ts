@@ -14,6 +14,8 @@ export class QuestionPageComponent {
   correctOption: number = Math.floor(Math.random() * 4)+1;
   optionIndex = 0;
   @Output() switchPage = new EventEmitter<string>();
+  @Output() correctAnswersCount = new EventEmitter<number>(); // Emit correct answers count
+
   selectedChoice: number =0;
   questions: any[] = [];
   size: number = 0;
@@ -45,7 +47,8 @@ export class QuestionPageComponent {
   }
 
   switchToLandingPage(){
-    console.log('switch to landing')
+    console.log('switch to landing');
+    this.correctAnswersCount.emit(this.correctAnswers); // Emit the correct answers count
     this.switchPage.emit("landingPage");
   }
 

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,7 +10,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 export class LandingPageComponent {
 
   @Output() switchPage = new EventEmitter<string>();
-
+  @Input() correctAnswers: number = 0;
   switchToStartPage(){
     console.log('switch to start')
     this.switchPage.emit("startPage");
