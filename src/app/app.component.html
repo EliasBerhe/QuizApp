@@ -15,10 +15,12 @@
           [difficulties] = "difficulties">
       </app-starting-page>
       <app-question-page 
+      (correctAnswersCount)="updateCorrectAnswers($event)"
       *ngIf = "currentPage == 'questionPage'"
       (switchPage)="showPage($event)"
       ></app-question-page>
       <app-landing-page
+      [correctAnswers]="correctAnswers"
       *ngIf = "currentPage == 'landingPage'"
       (switchPage)="showPage($event)"
       ></app-landing-page>

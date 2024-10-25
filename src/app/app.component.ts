@@ -27,7 +27,11 @@ export class AppComponent {
     "Medium",
     "Hard"
   ];
+  correctAnswers: number = 0; // Initialize correctAnswers property
   showPage(page: string){
     this.currentPage = page;
+  }
+  updateCorrectAnswers(count: number) {
+    this.correctAnswers = count; // Store the correct answers count
   }
 }
