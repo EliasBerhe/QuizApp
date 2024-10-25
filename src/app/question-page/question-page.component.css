@@ -36,4 +36,16 @@ button.selected {
     background-color: blue;
     color: white;
 }
+.custom-button.correct {
+  background-color: green;
+  color: white;
+}
 
+.custom-button.incorrect {
+  background-color: red;
+  color: white;
+}
+
+.custom-button.selected {
+  border: 2px solid blue;
+}

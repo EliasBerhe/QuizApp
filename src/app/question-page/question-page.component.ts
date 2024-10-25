@@ -17,6 +17,8 @@ export class QuestionPageComponent {
   selectedChoice: number =0;
   questions: any[] = [];
   size: number = 0;
+  answerChecked: boolean = false; // Flag to track if the answer was checked
+  wrongChoice: number = 0; // Track the incorrect choice if any
   correctAnswers: number = 0;
 
   selectChoice(choiceNumber: number){
@@ -57,10 +59,22 @@ export class QuestionPageComponent {
     this.index +=1;
     this.optionIndex =0;
     this.selectedChoice =0;
+    this.answerChecked = false; // Reset the flag for the next question
+     this.wrongChoice = 0; // Reset the wrong choice
 
+  }
+  checkAnswer(){
+    this.answerChecked = true; // Mark that the answer has been checked
+    this.optionIndex = 0;
+    if (this.selectedChoice !== this.correctOption) {
+      this.wrongChoice = this.selectedChoice; // Track wrong choice if the answer is incorrect
+    }
   }
 
   updateCounter(){
-    this.optionIndex +=1;
+    // if (this.answerChecked ) {
+    //   this.optionIndex += 1;
+    // }
+    this.optionIndex += 1;
   }
 }
