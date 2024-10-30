@@ -7,13 +7,18 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl = 'https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple&encode=url3986'; // API URL
+ // private apiUrl = 'https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}&type=multiple&encode=url3986'; // API URL
 
   constructor(private http: HttpClient) {}
 
   // Fetch questions from the API
-  getQuestions(): Observable<any[]> {
-    return this.http.get<any>(this.apiUrl).pipe(
+  getQuestions(category:number, difficulty:string): Observable<any[]> {
+    console.log(category);
+    console.log(difficulty);
+    const apiUrl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}&type=multiple&encode=url3986`;
+    
+    console.log(apiUrl);
+    return this.http.get<any>(apiUrl).pipe(
       map(response => response.results) // Extract the 'results' array from the response
     );
   }

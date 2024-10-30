@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { ApiService } from './api.service';
  
@@ -13,6 +13,8 @@ export class QuestionPageComponent {
   index: number = 0;
   correctOption: number = Math.floor(Math.random() * 4)+1;
   optionIndex = 0;
+  @Input() selectedCategory!: number;
+  @Input() selectedDifficulty!: string;
   @Output() switchPage = new EventEmitter<string>();
   @Output() correctAnswersCount = new EventEmitter<number>(); // Emit correct answers count
 
@@ -34,16 +36,15 @@ export class QuestionPageComponent {
   }
 
   fetchQuestions(){
-    this.apiService.getQuestions().subscribe(
-      (data) => {
-        console.log('Questions', data);
-        this.questions = (data);
-        this.size = data.length;
-      },
-      (error) => {
-        console.error('Error Fetching questions:', error);
-      }
-    )
+    this.apiService
+      .getQuestions(this.selectedCategory, this.selectedDifficulty)
+      .subscribe(
+        (data) => {
+          console.log('Questions', data);
+          this.questions = data;
+        },
+        (error) => console.error('Error fetching questions:', error)
+      );
   }
 
   switchToLandingPage(){
