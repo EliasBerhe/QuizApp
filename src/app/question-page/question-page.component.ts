@@ -47,7 +47,11 @@ export class QuestionPageComponent {
   }
 
   switchToLandingPage(){
-    console.log('switch to landing');
+    //Check if last selected choice was correct before moving to next quesiton
+    if(this.selectedChoice === this.correctOption){
+      this.correctAnswers++; //increment the overall
+    }
+
     this.correctAnswersCount.emit(this.correctAnswers); // Emit the correct answers count
     this.switchPage.emit("landingPage");
   }
