@@ -10,11 +10,14 @@
       <div class = "box">
      <app-starting-page 
      *ngIf = "currentPage == 'startPage'"
+     (startQuiz)="startQuiz($event)"
      (switchPage)="showPage($event)"
           [categoryList] = "categoryList" 
           [difficulties] = "difficulties">
       </app-starting-page>
       <app-question-page 
+      [selectedCategory]="selectedCategory"
+      [selectedDifficulty]="selectedDifficulty"
       (correctAnswersCount)="updateCorrectAnswers($event)"
       *ngIf = "currentPage == 'questionPage'"
       (switchPage)="showPage($event)"
