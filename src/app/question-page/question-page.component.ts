@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { ApiService } from './api.service';
  
@@ -15,8 +15,9 @@ export class QuestionPageComponent {
   optionIndex = 0;
   @Output() switchPage = new EventEmitter<string>();
   @Output() correctAnswersCount = new EventEmitter<number>(); // Emit correct answers count
-
-  selectedChoice: number =0;
+  @Input() selectedCategory!: string;
+  @Input() selectedDifficulty!: string;
+  selectedChoice: number =0
   questions: any[] = [];
   size: number = 0;
   answerChecked: boolean = false; // Flag to track if the answer was checked
@@ -34,7 +35,7 @@ export class QuestionPageComponent {
   }
 
   fetchQuestions(){
-    this.apiService.getQuestions().subscribe(
+    this.apiService.getQuestions(this.selectedCategory, this.selectedDifficulty).subscribe(
       (data) => {
         console.log('Questions', data);
         this.questions = (data);

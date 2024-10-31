@@ -16,17 +16,31 @@ import {CommonModule} from '@angular/common';
 export class AppComponent {
   currentPage: string = "startPage";
   title = 'homePage';
-  categoryList: String[] = [
+  // categoryList: String[] = [
+  //   "General Knowledge",
+  //   "Music",
+  //   "Sports",
+  //   "History"
+  // ];
+  selectedCategory: string = '';
+  selectedDifficulty: string = '';
+  categoryList = [
     "General Knowledge",
-    "Music",
     "Sports",
-    "History"
+    "Film",
+    "Science"
   ];
   difficulties: String[] = [
-    "Easy",
-    "Medium",
-    "Hard"
+    "easy",
+    "medium",
+    "hard"
   ];
+  startQuiz(event: { category: string; difficulty: string }) {
+    console.log(event);
+    this.selectedCategory = event.category;
+    this.selectedDifficulty = event.difficulty;
+    this.currentPage = 'questionPage';
+  }
   correctAnswers: number = 0; // Initialize correctAnswers property
   showPage(page: string){
     this.currentPage = page;
